@@ -1,3 +1,10 @@
+const edadDelUsuario = parseInt(prompt("¿Cuál es tu edad?"));
+if(edadDelUsuario >= 18){
+    let ingreso = prompt("Bienvenidos a Deliver Drink! Tenemos en stock 10 combos disponibles. Si desea ver nuestro catálogo ingrese 'Si/No'").toLowerCase();;
+}else{
+    alert("Eres menor de edad, podrás volver cuando cumplas 18 años.");
+}
+
 let misBebidas = []
 let variedades = [
     {name: "Cerveza"},

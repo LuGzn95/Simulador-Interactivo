@@ -1,36 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador interactivo</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css" />
+    <title>Deliver Drink</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Modak&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />  
 </head>
 <body>
+    <!-- ventana emergente para validar la edad -->
+    <div class="modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ingrese su edad</h5>
+                    <button type="button" class="close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Edad:<input type="text"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ventana menor de edad -->
+    <div class="modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Menor de edad</h5>
+                    <button type="button" class="close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Eres menor de edad, vuelve cuando tengas 18!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- confirmar pedido -->
+    <div class="modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmación de Pedido</h5>
+                    <button type="button" class="close"></button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <header>
-        <h1 style="text-align: center;">Simulador de compra de bebidas</h1>
-        <p style="text-align: center;">Primer desafío</p>
+        <div class="container logos">
+            <div class="row">
+                <div class="col-sm logo-leyend2">
+                    <img class="img-fluid logo logo-1" src="./assets/images/logodeliverdrink.svg">
+                </div>
+            </div>
+        </div>
     </header>
-    <nav>
-        <ul>
-            <li>Vinos</li>
-            <li>Espumantes</li>
-            <li>Cervezas</li>
-            <li>Gin</li>
-            <li>Vodka</li>
-            <li>Ron</li>
-            <li>Sin alcohol</li>
-            <li>Juegos de mesa</li>
-        </ul>
-    </nav>
-    <section>
-<!-- Galería de fotos de bebidas -->
+    <section class="content-section">
+        <div class=" container-fluid main-image">
+            <h1 class="anim">DELIVERY DE BEBIDAS</h1>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae doam exercitationem iure tempore veniam? </p>
+            <div class="boton">
+                <button class="button-p">Encargar</button>
+            </div>
+        </div>
+        <div class="customer">
+            <h1>Haz tu pedido, en breve te lo llevamos</h1>
+            <div class="form">
+                <div class=" container-fluid delivery">
+                    <div class="row">
+                        <div class="col-sm column-1">
+                            Seleccione su bebida favorita:
+                        </div>
+                        <div class="col-sm column-2">
+                            <select name='producto'></select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm column-1">
+                            Cantidad:
+                        </div>
+                        <div class="col-sm column-2">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm column-1">
+                            Precio:
+                        </div>
+                        <div class="col-sm column-2">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm column-1">
+                            Subtotal:
+                        </div>
+                        <div class="col-sm column-2">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm column-1"></div>
+                        <div class="col-sm column-2">
+                            <div class="error"></div>
+                            <button class="agregar">AGREGAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-<!-- Formulario -->
-    <footer> 
-        <form action=""></form>
-    </footer>
-    
-    <script src="./main.js"></script>
 </body>
+<script src="./main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </html>
