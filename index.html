@@ -4,24 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css" />
     <title>Deliver Drink</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Modak&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />  
+    <link rel="stylesheet" href="./styles.css"/>
 </head>
 <body>
-    <!-- ventana emergente para validar la edad -->
-    <div class="modal">
+    <!-- VALIDAR EDAD -->
+    <div class="modal" id="modal-edad">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Ingrese su edad</h5>
-                    <button type="button" class="close"></button>
+                    <button type="button" class="close" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Edad:<input type="text"></p>
+                    <p>Edad: <input type="text" id="validar-edad" class="campoNumerico"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary">Aceptar</button>
@@ -29,8 +29,8 @@
             </div>
         </div>
     </div>
-    <!-- ventana menor de edad -->
-    <div class="modal">
+    <!-- MENOR DE EDAD -->
+    <div class="modal" id="modal-menor">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -46,13 +46,16 @@
             </div>
         </div>
     </div>
-    <!-- confirmar pedido -->
-    <div class="modal">
+    <!-- CONFIRMAR PEDIDO -->
+    <div class="modal" id="modal-pedido">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Confirmación de Pedido</h5>
                     <button type="button" class="close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="detalle-pedido"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary">Cerrar</button>
@@ -69,24 +72,29 @@
             </div>
         </div>
     </header>
+  
     <section class="content-section">
-        <div class=" container-fluid main-image">
+      <div class=" container-fluid main-image" id="deliv">
             <h1 class="anim">DELIVERY DE BEBIDAS</h1>
-            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae doam exercitationem iure tempore veniam? </p>
+            <p class="lead" id="terr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neceasperiores reiciendis aliquam autem.</p>
             <div class="boton">
-                <button class="button-p">Encargar</button>
+              <button class="button-p" id="pedidos">PEDÍ TU BREBAJE</button>
             </div>
-        </div>
-        <div class="customer">
-            <h1>Haz tu pedido, en breve te lo llevamos</h1>
+      </div>
+  
+      <div class="container-fluid">
+            <div class="row bottles" id="bottles"></div>
+      </div>
+      <div class="customer" id="customer">
+            <h1>HAGA SU PEDIDO</h1>
             <div class="form">
                 <div class=" container-fluid delivery">
                     <div class="row">
                         <div class="col-sm column-1">
-                            Seleccione su bebida favorita:
+                          Seleccione su Bebida:
                         </div>
                         <div class="col-sm column-2">
-                            <select name='producto'></select>
+                          <select name='producto' id="bebidas"></select>
                         </div>
                     </div>
                     <div class="row">
@@ -94,38 +102,40 @@
                             Cantidad:
                         </div>
                         <div class="col-sm column-2">
-                            <input type="text">
+                            <input type="text" id="cantidad" class="campoNumerico">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm column-1">
-                            Precio:
-                        </div>
-                        <div class="col-sm column-2">
-                            <input type="text">
-                        </div>
+                            <div class="col-sm column-1">
+                                Precio:
+                            </div>
+                            <div class="col-sm column-2">
+                                <input type="text" id="precio" class="campoNumerico">
+                            </div>
                     </div>
                     <div class="row">
                         <div class="col-sm column-1">
                             Subtotal:
                         </div>
                         <div class="col-sm column-2">
-                            <input type="text">
+                            <input type="text" id="subtotal" class="campoNumerico">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm column-1"></div>
                         <div class="col-sm column-2">
-                            <div class="error"></div>
+                            <div class="error" id="error"></div>
                             <button class="agregar">AGREGAR</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+      </div>
+      <div class="pedido-final" id="pedido-final"></div>
+      <div class="form-cliente container-fluid form" id="form-cliente"></div>
     </section>
-</body>
-<script src="./main.js"></script>
+  </body>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="./main.js"></script>
 </html>
