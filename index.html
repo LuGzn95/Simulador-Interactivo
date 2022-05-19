@@ -24,7 +24,7 @@
                     <p>Edad: <input type="text" id="validar-edad" class="campoNumerico"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Aceptar</button>
+                    <button type="button" class="btn btn-primary" onclick="guardarEdad()">Aceptar</button>
                 </div>
             </div>
         </div>
@@ -78,7 +78,7 @@
             <h1 class="anim">DELIVERY DE BEBIDAS</h1>
             <p class="lead" id="terr">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neceasperiores reiciendis aliquam autem.</p>
             <div class="boton">
-              <button class="button-p" id="pedidos">PEDÍ TU BREBAJE</button>
+              <button class="button-p" id="pedidos">PEDÍ TU BEBIDA FAVORITA</button>
             </div>
       </div>
   
@@ -94,7 +94,7 @@
                           Seleccione su Bebida:
                         </div>
                         <div class="col-sm column-2">
-                          <select name='producto' id="bebidas"></select>
+                          <select name='producto' id="bebidas" onchange="agregarPrecio()"></select>
                         </div>
                     </div>
                     <div class="row">
@@ -102,7 +102,7 @@
                             Cantidad:
                         </div>
                         <div class="col-sm column-2">
-                            <input type="text" id="cantidad" class="campoNumerico">
+                            <input type="text" id="cantidad" class="campoNumerico" onkeyup="calcularSubtotal()">
                         </div>
                     </div>
                     <div class="row">
@@ -125,7 +125,7 @@
                         <div class="col-sm column-1"></div>
                         <div class="col-sm column-2">
                             <div class="error" id="error"></div>
-                            <button class="agregar">AGREGAR</button>
+                            <button class="agregar" onclick="agregarProducto()">AGREGAR</button>
                         </div>
                     </div>
                 </div>
